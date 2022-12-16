@@ -5,7 +5,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import Container from '../config/styles'
 import { useNavigate, useLocation } from 'react-router-dom'
-import {useAuth} from '../services/firebase/useAuth'
+
 
 const ElementInput = styled.input`
     width: 20vh;
@@ -41,24 +41,69 @@ const Button = styled.button`
     background-color: rgb(180, 180, 180);
     margin: 10px;
 `
-
 function LoginForm() {
+
+    const [registering,isRegistering] = useState(false)
+
+    const [serverErrorMessage, setServerErrorMessage] = useState('')
+    
+    const schema = yup.object().shape({
+        email: yup
+          .string()
+          .email("email is not valid")
+          .required("you must enter a email"),
+        password: yup
+          .string()
+          .required("name is required")
+          .min(2, "name must be a a longer than two letters"),
+      });
+    const {register,formState: {errors},handleSubmit} = useForm({resolver: yupResolver(schema)})
+
+    const onSubmit = async (data)=>{
+        try{
+            await schema.validate(data)
+        }catch (e){
+            console.log(JSON.stringify(e))
+        }
+   
+        if(registering){
+            try{
+      
+                const {email,password} = data
+                console.log(email, password, "registering")
+             
+            }catch(e){
+                setServerErrorMessage(e.message)
+            }
+    
+        }else{
+            try {
+                const {email,password} = data
+                console.log(email,password, "logging in")
+            } catch(e){
+                setServerErrorMessage(e.message)
+            }
+        } 
+    }
+
 
   return (
     <>
         <LoginContainer>
-            <Form 
+            <Form onSubmit={handleSubmit(onSubmit)}
             >
-                <h2> Login Here</h2>
-                
-                <ElementInput />
-               
-                <ElementInput />
-             
+                <h2> {registering ? "Register here" : "Login Here"}</h2>
+                <p>{serverErrorMessage.message && serverErrorMessage?.message}</p>
+
+                <ElementInput {...register("email")} placeholder="Email*"/>
+                <p>{errors.email && errors.email?.message}</p>
+                <ElementInput {...register("password")} type="password" placeholder='Password'/>
+                <p>{errors.password && errors.password?.message}</p>
                 <Button type = "submit">Sign in</Button>
-             
+                <Button type = "button" onClick={isRegistering}>Register</Button>
             </Form>
         </LoginContainer>   
+     
     </>
     
   )
