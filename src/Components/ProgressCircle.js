@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 
 
+
 const OuterCircle= styled.div`
     width: 6rem;
     height: 6rem;
@@ -52,7 +53,7 @@ function ProgressCircle() {
   const averageSleep = 8
   const timeSlept = 6
   
-  const sleepProgresss = Math.round((timeSlept/8) *100)
+  const sleepProgresss = Math.round((timeSlept/averageSleep) *100)
 
 
 

@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import {useForm} from 'react-hook-form'
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
-import Container from '../config/styles'
 import { useNavigate, useLocation } from 'react-router-dom'
+import Container from '../config/styles'
+
 
 
 const ElementInput = styled.input`
