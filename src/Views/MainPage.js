@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import GoalBar from "../Components/GoalBar";
+import SleepTime from "../Components/SleepTime"
 
 
 
@@ -62,6 +63,9 @@ function MainPage() {
 
       <ProgresQuote>Based on data you've entered: </ProgresQuote>
       <GoalBar  />
+
+      <ProgresQuote>Based on data you've entered: </ProgresQuote>
+      <SleepTime  />
 
     </>
   );

@@ -51,7 +51,7 @@ const Input = styled.input`
 
 `
 
-function TimeForm() {
+function SleepForm() {
   const navigate = useNavigate()
  
   const state = useLocation()
@@ -66,9 +66,9 @@ function TimeForm() {
     const sleepPlan = { 
       email: "joeisthebest@joerocks.com",
       sleepTime,
-      sleepDate:sleepDate,
+      sleepDate:moment(sleepDate).format("DD/MM/YYYY").toString(),
       wakeTime,
-      wakeDate:wakeDate,
+      wakeDate:moment(wakeDate).format("DD/MM/YYYY").toString(),
       createdAt: new Date().toLocaleString(),
     
     }
@@ -108,4 +108,4 @@ function TimeForm() {
     
   )
 }
-export default TimeForm
+export default SleepForm
