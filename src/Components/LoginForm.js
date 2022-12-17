@@ -43,6 +43,9 @@ const Button = styled.button`
     margin: 10px;
 `
 function LoginForm() {
+    const navigate = useNavigate()
+   
+    const state = useLocation()
 
     const [registering,isRegistering] = useState(false)
 
@@ -72,7 +75,7 @@ function LoginForm() {
       
                 const {email,password} = data
                 console.log(email, password, "registering")
-             
+                navigate(state?.path || "/")
             }catch(e){
                 setServerErrorMessage(e.message)
             }
