@@ -47,15 +47,13 @@ function MainPage() {
           <HeadingObjects>Welcome </HeadingObjects>
           <HeadingObjects icon> Add Sleep Time</HeadingObjects>
         
-        
-          <LogoutStyle>Logout</LogoutStyle> 
-   
           <HeadingObjects icon>
             <Link to="/selection">
               <AiFillPlusSquare/>
             </Link>
+          
           </HeadingObjects>
-        
+          <LogoutStyle>Logout</LogoutStyle> 
         </WelcomeHeader>
         
 
