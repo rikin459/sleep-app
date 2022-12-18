@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import styled from "styled-components";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -7,7 +7,8 @@ import SleepTime from "../Components/SleepTime"
 import {useAuth} from "../services/useAuth"
 import {useSleep} from "../services/useSleep"
 import { getDocs } from "firebase/firestore";  
-
+import WeeklyGraph from "../Components/WeeklyGraph";
+import moment from "moment";
 
 
 
@@ -42,11 +43,13 @@ const ProgresQuote = styled.h4`
 
 function MainPage() {
   
-  const {getSleep,getSleeps} = useSleep()
   const [bedTime,setBedTime] = useState([])
+  const {getSleep,getSleeps} = useSleep()
   const {isAuthenticated, signUserOut} = useAuth()
 
   let data = null
+  let graphData = []
+  const graphSleep = useRef([])
   
 
   useEffect(() => {
@@ -59,9 +62,23 @@ function MainPage() {
         data = doc.data()
        
       })
+
+      const sleepData= getSleeps()
+      const sleepTimesSnapshot = await getDocs(sleepData)
       
+      sleepTimesSnapshot.forEach((doc) =>{
+
+        let document = doc.data()
+   
+        let [sleepTime,wakeTime,day] = [document.sleepTime,document.wakeTime,[moment(document.sleepDate,"DD-MM-YYYY").format("ddd DD-MM").toString(),moment(document.wakeDate,"DD-MM-YYYY").format("ddd DD-MM").toString()]]
+        
+        graphData.push([sleepTime,wakeTime,day])
+      })
+
+      graphSleep.current = graphData
 
       const {sleepTime,wakeTime} = data
+      
 
       setBedTime([sleepTime,wakeTime])
     }
@@ -69,7 +86,7 @@ function MainPage() {
   },[isAuthenticated])
   
 
- 
+  const sleepGraphData = {isAuthenticated , graphSleep} 
  
   return (
     <>
@@ -95,6 +112,9 @@ function MainPage() {
 
       <ProgresQuote>Based on data you've entered: </ProgresQuote>
       <SleepTime {...bedTime} />
+
+      <ProgresQuote> Weekly overview </ProgresQuote>
+      <WeeklyGraph {...sleepGraphData}/>
 
     </>
   );

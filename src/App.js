@@ -1,6 +1,5 @@
 import ThemeProvider from "styled-components"
 import { useEffect,useState } from "react";
-import {useAuth} from "./services/useAuth"
 import theme from "./config/theme"
 import GlobalStyles from "./config/GlobalStyles"
 import MainPage from "./Views/MainPage";
@@ -12,8 +11,6 @@ import LoginForm from "./Components/LoginForm";
 
 function App() {
   const [currentUser, setcurrentUser] = useState("")
-
-  const {isAuthenticated} = useAuth()
 
   useEffect( () =>{
     auth.onAuthStateChanged(user =>{
@@ -33,12 +30,12 @@ function App() {
       <BrowserRouter>
               <Routes>
                 <Route path="/" element={
-                    <Protected authenticated={isAuthenticated}/>
+                    <Protected/>
               }>
                   <Route path="/" element={<MainPage user = {currentUser}/>}/>
                 </Route>
                 <Route path="/selection" element={
-                    <Protected authenticated={isAuthenticated}/>
+                    <Protected/>
               }>
                   <Route path="/selection" element={<SelectionMenu currentUser={currentUser}/>}/>
                 </Route>

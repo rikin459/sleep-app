@@ -27,6 +27,7 @@ export function useSleep() {
     const createSleep = (sleepTime) => addDoc(ref,sleepTime)
     const weeklySleeps = () => getDocs(ref)
     const getSleep = () => query(ref, where("email","==", email), orderBy("createdAt","desc"), limit(1))
+    const getSleeps = () => query(ref, where("email","==", email), orderBy("createdAt","asc"))
     const calculatedHoursSlept = (sleep) => {
 
         const sleepTime = sleep[0]
@@ -55,6 +56,6 @@ export function useSleep() {
         return hours
         }
 
-    return {getSleep, createSleep,weeklySleeps,calculatedHoursSlept}
+    return {getSleep, createSleep,weeklySleeps,calculatedHoursSlept,getSleeps}
 }
 

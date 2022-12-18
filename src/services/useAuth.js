@@ -17,7 +17,6 @@ export function useAuth() {
     useEffect(() =>{
 
         onAuthStateChanged(auth,(user) =>{
-           console.log(user?.email)
             if(user) {
 
                 setIsAuthenticated(true)
