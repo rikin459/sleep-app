@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import {useLocation, useNavigate} from "react-router-dom"
 import moment from 'moment/moment';
+import useSleep from '../services/useSleep'
 
 
 
@@ -51,9 +52,9 @@ const Input = styled.input`
 
 `
 
-function SleepForm() {
+function SleepForm({currentUser}) {
   const navigate = useNavigate()
- 
+  const {createSleep} = useSleep()
   const state = useLocation()
 
   const {register,formState: {errors},handleSubmit} = useForm()
@@ -64,7 +65,7 @@ function SleepForm() {
     moment(sleepTime).format("hh:mm:ss")
     moment(wakeDate).format("ddd")
     const sleepPlan = { 
-      email: "joeisthebest@joerocks.com",
+      email: currentUser.email,
       sleepTime,
       sleepDate:moment(sleepDate).format("DD/MM/YYYY").toString(),
       wakeTime,
@@ -73,10 +74,9 @@ function SleepForm() {
     
     }
       try{
-    
-
-        console.log(sleepPlan)
-     
+  
+        await createSleep(sleepPlan)
+       
         navigate(state?.path || "/")
       
       }catch(e){

@@ -23,11 +23,11 @@ margin-bottom: 4vh;
 
 
 
-function SleepTime() {
+function SleepTime(bedTime) {
 
   return (
     <>
-      <Container>Your next sleep is at 15:00 and ends at 23:02</Container>
+      <Container>{!bedTime[0] ? "Data not found" :`Your next bed time is at ${bedTime[0]} and your waking hour is at ${bedTime[1]}`}</Container>
     </>
   );
 }

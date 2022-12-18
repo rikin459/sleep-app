@@ -11,12 +11,12 @@ const MainContainer= styled.div`
   justify-content:center;
 `
 
-function SelectionMenu() {
+function SelectionMenu({currentUser}) {
 
 
   return (
     <MainContainer>
-      <SleepForm/>
+      <SleepForm {...currentUser}/>
       <Link to ="/">
             <AiOutlineHome size="10em" style={{display:"grid", 
                                                 alignItems: "center",

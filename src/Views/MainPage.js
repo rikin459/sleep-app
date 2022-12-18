@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import GoalBar from "../Components/GoalBar";
 import SleepTime from "../Components/SleepTime"
 import {useAuth} from "../services/useAuth"
+import {useSleep} from "../services/useSleep"
+import { getDocs } from "firebase/firestore";  
 
 
 
@@ -39,8 +41,35 @@ const ProgresQuote = styled.h4`
 
 
 function MainPage() {
+  
+  const {getSleep,getSleeps} = useSleep()
+  const [bedTime,setBedTime] = useState([])
+  const {isAuthenticated, signUserOut} = useAuth()
 
-  const {signUserOut} = useAuth()
+  let data = null
+  
+
+  useEffect(() => {
+    const getBedTime = async() =>{
+      const query = getSleep()
+      const bedTimeSnapshot = await getDocs(query)
+  
+      bedTimeSnapshot.forEach((doc) =>{
+       
+        data = doc.data()
+       
+      })
+      
+
+      const {sleepTime,wakeTime} = data
+
+      setBedTime([sleepTime,wakeTime])
+    }
+    getBedTime()
+  },[isAuthenticated])
+  
+
+ 
  
   return (
     <>
@@ -62,10 +91,10 @@ function MainPage() {
       </div>
 
       <ProgresQuote>Based on data you've entered: </ProgresQuote>
-      <GoalBar  />
+      <GoalBar {...bedTime}  />
 
       <ProgresQuote>Based on data you've entered: </ProgresQuote>
-      <SleepTime  />
+      <SleepTime {...bedTime} />
 
     </>
   );
