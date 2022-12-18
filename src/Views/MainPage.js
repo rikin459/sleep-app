@@ -4,6 +4,7 @@ import { AiFillPlusSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import GoalBar from "../Components/GoalBar";
 import SleepTime from "../Components/SleepTime"
+import {useAuth} from "../services/useAuth"
 
 
 
@@ -39,6 +40,7 @@ const ProgresQuote = styled.h4`
 
 function MainPage() {
 
+  const {signUserOut} = useAuth()
  
   return (
     <>
@@ -53,7 +55,7 @@ function MainPage() {
             </Link>
           
           </HeadingObjects>
-          <LogoutStyle>Logout</LogoutStyle> 
+          <LogoutStyle  onClick={signUserOut}>Logout</LogoutStyle> 
         </WelcomeHeader>
         
 

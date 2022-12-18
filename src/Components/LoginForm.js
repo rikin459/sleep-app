@@ -5,6 +5,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { useNavigate, useLocation } from 'react-router-dom'
 import Container from '../config/styles'
+import {useAuth} from '../services/useAuth'
 
 
 
@@ -50,6 +51,9 @@ function LoginForm() {
     const [registering,isRegistering] = useState(false)
 
     const [serverErrorMessage, setServerErrorMessage] = useState('')
+
+    const {createEmailuser, signInEmailUser} = useAuth()
+    
     
     const schema = yup.object().shape({
         email: yup
@@ -74,8 +78,12 @@ function LoginForm() {
             try{
       
                 const {email,password} = data
-                console.log(email, password, "registering")
-                navigate(state?.path || "/")
+                const response = await createEmailuser(email,password)
+                if(response.user){
+                    navigate(state?.path || "/")
+                }else{
+                    console.log("An uknown error has occured")
+                }
             }catch(e){
                 setServerErrorMessage(e.message)
             }
@@ -83,7 +91,12 @@ function LoginForm() {
         }else{
             try {
                 const {email,password} = data
-                console.log(email,password, "logging in")
+                const response = await signInEmailUser(email,password)
+                if(response.user){
+                    navigate(state?.path || "/")
+                }else{
+                    console.log("an unknown error has occured")
+                }
             } catch(e){
                 setServerErrorMessage(e.message)
             }
