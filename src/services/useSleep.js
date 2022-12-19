@@ -10,7 +10,7 @@ import {
 import moment from "moment";
 import { getAuth } from "firebase/auth";
 
-export function useSleep() {
+function useSleep() {
     const db = getFirestore();
     
     const [email, setEmail] = useState("")
@@ -52,10 +52,12 @@ export function useSleep() {
         
         const hours = duration.asHours()
 
-        
+      
         return hours
         }
 
     return {getSleep, createSleep,weeklySleeps,calculatedHoursSlept,getSleeps}
 }
+
+export default useSleep;
 

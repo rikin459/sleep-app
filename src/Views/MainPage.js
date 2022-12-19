@@ -2,13 +2,14 @@ import React, {useState, useEffect, useRef} from "react";
 import styled from "styled-components";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import GoalBar from "../Components/GoalBar";
-import SleepTime from "../Components/SleepTime"
-import {useAuth} from "../services/useAuth"
-import {useSleep} from "../services/useSleep"
+import GoalBar from "../components/GoalBar";
+import SleepTime from "../components/SleepTime"
+import useAuth from "../services/useAuth"
+import useSleep from "../services/useSleep"
 import { getDocs } from "firebase/firestore";  
-import WeeklyGraph from "../Components/WeeklyGraph";
+import WeeklyGraph from "../components/WeeklyGraph";
 import moment from "moment";
+
 
 
 
@@ -51,12 +52,14 @@ function MainPage() {
   let graphData = []
   const graphSleep = useRef([])
   
-
+ 
   useEffect(() => {
     const getBedTime = async() =>{
+     
       const query = getSleep()
+    
       const bedTimeSnapshot = await getDocs(query)
-  
+    
       bedTimeSnapshot.forEach((doc) =>{
        
         data = doc.data()
@@ -82,12 +85,13 @@ function MainPage() {
 
       setBedTime([sleepTime,wakeTime])
     }
+ 
     getBedTime()
   },[isAuthenticated])
-  
+  console.log("here")
 
   const sleepGraphData = {isAuthenticated , graphSleep} 
- 
+  
   return (
     <>
        <div>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProgressCircle from "./ProgressCircle";
 
 
-const Container = styled.div`
+export const Container = styled.div`
 display: grid;
 grid-template-columns: auto auto auto;
 align-items: center;
@@ -20,13 +20,13 @@ box-shadow: 1px 1px 30px grey;
 margin-bottom: 4vh;
 `;
 
-function GoalBar() {
+function GoalBar(bedTime) {
   
   return (
 
     <>
       <Container>
-        <ProgressCircle />
+        <ProgressCircle {...bedTime}/>
       </Container>
     </>
   );

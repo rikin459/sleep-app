@@ -1,10 +1,9 @@
-import React,{useEffect, useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import { useSleeper } from "../services/firebase/useSleep";
-import {getDocs } from "firebase/firestore";  
+  
 
 
-const Container = styled.div`
+export const Container = styled.div`
 display: grid;
 grid-template-columns: auto auto auto;
 align-items: center;

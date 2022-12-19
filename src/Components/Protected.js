@@ -1,5 +1,5 @@
 import React from "react";
-import {useAuth} from "../services/firebase/useAuth"
+import {useAuth} from "../services/useAuth"
 import styled from 'styled-components'
 import { Outlet, useLocation, useNavigate} from "react-router-dom"
 
@@ -19,18 +19,16 @@ const Container = styled.div`
     margin-bottom: 4vh;
   `;
 
-function Protected() {
+function Protected({authenticate}) {
     const location = useLocation()
     const navigate = useNavigate()
  
-    const {isAuthenticated} = useAuth()
-
-
     function login(){
+        console.log("I reached here")
         navigate(location?.path || "/login")
     }
 
-    return isAuthenticated?(
+    return authenticate?(
         <Outlet/>
     ):(
        <Container>

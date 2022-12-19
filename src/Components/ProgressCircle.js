@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useSleep } from '../services/useSleep'
+import  useSleep  from '../services/useSleep'
 
 
 
@@ -50,13 +50,12 @@ const OuterCircle= styled.div`
 
 function ProgressCircle(bedTime) {
   const {calculatedHoursSlept} = useSleep()
-
+ 
   const averageSleep = 8
-
-  const timeSlept = calculatedHoursSlept(bedTime[0],bedTime[1])
+  let timeSlept = calculatedHoursSlept([bedTime[0],bedTime[1]])
   
-  const sleepProgresss = Math.round((timeSlept/averageSleep) *100)
 
+  const sleepProgresss = Math.round((timeSlept/averageSleep) *100)
 
 
   const circlePerc = 333-(((sleepProgresss > 100 || sleepProgresss < 0 ? 100 : sleepProgresss)/100) *333) 

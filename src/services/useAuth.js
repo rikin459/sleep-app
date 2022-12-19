@@ -18,7 +18,7 @@ export function useAuth() {
 
         onAuthStateChanged(auth,(user) =>{
             if(user) {
-
+                
                 setIsAuthenticated(true)
                 return
             }

@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { useSleep } from '../services/firebase/useSleep';
+import  useSleep  from '../services/useSleep';
 import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -40,6 +40,7 @@ function WeeklyGraph({...props}) {
   
   let dummy = []
   let dummyDays = []
+  
   const getSleepData = () =>{
    
 

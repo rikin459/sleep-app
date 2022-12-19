@@ -1,16 +1,19 @@
-import ThemeProvider from "styled-components"
+import {ThemeProvider} from "styled-components"
 import { useEffect,useState } from "react";
 import theme from "./config/theme"
 import GlobalStyles from "./config/GlobalStyles"
 import MainPage from "./Views/MainPage";
 import {  Route,BrowserRouter, Routes} from "react-router-dom";
-import SelectionMenu from "./Components/SelecitonMenu"
+import SelectionMenu from "./components/SelectionMenu"
 import {auth} from "./config/firebase"
-import Protected from "./Components/Protected";
-import LoginForm from "./Components/LoginForm";
+import Protected from "./components/Protected";
+import LoginForm from "./components/LoginForm";
+import useAuth from "./services/useAuth";
+
 
 function App() {
   const [currentUser, setcurrentUser] = useState("")
+  const {isAuthenticated} = useAuth()
 
   useEffect( () =>{
     auth.onAuthStateChanged(user =>{
@@ -27,23 +30,23 @@ function App() {
     <ThemeProvider theme={theme}> 
       <GlobalStyles/>
       <div className="App" theme={theme}>
-      <BrowserRouter>
-              <Routes>
-                <Route path="/" element={
-                    <Protected/>
-              }>
-                  <Route path="/" element={<MainPage user = {currentUser}/>}/>
-                </Route>
-                <Route path="/selection" element={
-                    <Protected/>
-              }>
-                  <Route path="/selection" element={<SelectionMenu currentUser={currentUser}/>}/>
-                </Route>
-                <Route path="/login" element={<LoginForm/>}/>
-              </Routes>
-            </BrowserRouter>
+        <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={
+                      <Protected authenticate={isAuthenticated}/>
+                }>
+                    <Route path="/" element={<MainPage user = {currentUser}/>}/>
+                  </Route>
+                  <Route path="/selection" element={
+                      <Protected authenticate={isAuthenticated}/>
+                }>
+                    <Route path="/selection" element={<SelectionMenu currentUser={currentUser}/>}/>
+                  </Route>
+                  <Route path="/login" element={<LoginForm/>}/>
+                </Routes>
+        </BrowserRouter>
       </div>
-  </ThemeProvider>
+    </ThemeProvider>
   );
 }
 
