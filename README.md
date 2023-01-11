@@ -1,9 +1,9 @@
 # Cover Page 
 
-## Sleep App Project 
-## Rikin Patel
-## Web app Link:
-## Git repo Link :https://github.com/rikin459/sleep-app
+### Sleep App Project 
+### Rikin Patel
+### Web app Link:
+### Git repo Link :https://github.com/rikin459/sleep-app
 
 
 
