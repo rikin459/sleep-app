@@ -16,13 +16,12 @@ The first part of this assessment was to do the research on what the problem is 
 
 ## Methods
 
-When creating big projects, it's important to use methodologies. For the first half of this project I use the design thinking methodology which helped me identify the user’s needs and create a prototype. However, it is important to also use a development methodology which will help you create the actual  application when you come to that stage. So before building the application I decided to choose a methodology that would suit my project well and I decided to choose the waterfall methodology. This methodology was split into five parts
+When creating big projects, it's important to use methodologies. For the first half of this project I use the design thinking methodology which helped me identify the user’s needs and create a prototype. However, it is important to also use a development methodology which will help you create the actual  application when you come to that stage. So before building the application I decided to choose a methodology that would suit my project well and I decided to choose the [waterfall methodology](https://business.adobe.com/blog/basics/waterfall#:~:text=The%20Waterfall%20methodology%20%E2%80%94%20also%20known,before%20the%20next%20phase%20begins.). This methodology was split into five parts
 
 1. Requirements: the first point of the methodology is required this is where you would gather the information on the requirements of your project for example for my project it would be the requirements of the user’s needs for example what they need in the app like sleep metrics.
 
 
-2. Design: this would be where the first draft of designs is created and the final designs of the project. For our project the designs were created in Figma which is a tool that you can create prototypes. this was also done in the first half of the project.
- 
+2. Design: this would be where the first draft of designs is created and the final designs of the project. For our project the designs were created in Figma which is a tool that you can create prototypes. This was also done in the first half of the project. Then the design of the prototype was used to create the pages on the actual web app.  
  
 3. Implementation: the implementation part of the waterfall methodology is where once those two steps are completed, we can move forward to the implementation part. In the implementation part, you would use the requirements and the design part of the project to create your project. for my project, I used the requirements of the users which I got from the survey and the design prototype which was made in Figma to create the actual application.
 
@@ -34,10 +33,7 @@ When creating big projects, it's important to use methodologies. For the first h
 
 
 
-
-
-
-## User Story 
+## [User Story]([link](https://www.ba-squared.com/blog/user-stories-you-dont-have-to-be-agile-to-use-them/)
 A second-year uni student is struggling with his sleep schedule he struggles to go to sleep on time and wake up. This led to him having problems such as tiredness, low appetite and struggle to focus. He decides to use the sleep app to log his sleep every day and he also checks in on the app and it shows on the progress bar how well he's doing this motivates him to have a better sleep schedule and go to bed on time and get the full 8 hours of sleep. He also compares his sleep using the graph at the bottom of the app showing how he is doing with his progress of improvement which leads him to be better at his sleep overall.
 
 ## Conclusion 
