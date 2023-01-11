@@ -40,47 +40,10 @@ When creating big projects, it's important to use methodologies for the first ha
 ## User Story 
 A second-year uni student is struggling with his sleep schedule he struggles to go to sleep on time and wake up. This led to him having health problems such as tiredness low appetite and struggle to focus. He decides to use the sleep app to log his sleep every day and he also checks in on the app and it shows on the progress bar how well he's doing this motivates him to have a better sleep schedule and go to bed on time and get the full 8 hours of sleep. He also compares his sleep using the graph at the bottom of the app showing how he is doing with his progress of improvement which leads him to be better at his sleep overall
 
-##Conclusion 
+## Conclusion 
 To get some feedback on my work I decided to ask my sister who goes to the university of Sussex to have a look at my single-page web application. the first point she made was the consistency of the colour theme used throughout the whole web application which is a black and purple colour scheme. it was also a great colour scheme to use as the application would be used before bed and harsh colours should be avoided before bed. she then described the logging process of the sleep which was very good but however she did say there is room for improvement in the logging the sleep page. The final thing she said was the homepage was the plus point of this project as it was full of information and sufficiently designed and the graph below looks visually pleasing and also as a function
 
 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
