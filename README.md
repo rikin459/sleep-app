@@ -43,6 +43,8 @@ A second-year uni student is struggling with his sleep schedule he struggles to 
 ## Conclusion 
 To get some feedback on my work I decided to ask my sister who goes to the university of Sussex to have a look at my single-page web application. the first point she made was the consistency of the colour theme used throughout the whole web application which is a black and purple colour scheme. it was also a great colour scheme to use as the application would be used before bed and harsh colours should be avoided before bed. she then described the logging process of the sleep which was very good but however she did say there is room for improvement in the logging the sleep page. The final thing she said was the homepage was the plus point of this project as it was full of information and sufficiently designed and the graph below looks visually pleasing and also as a function
 
+ Overall, this was a great project to work on it gave me a great lot of knowledge on the react and firebase. And using all this knowledge I was able to solve the problem that many students face. This project has a lot of room for improvement, but I think this is a good development of the prototype which is fully working and could be added with more features if time wasn't an issue. And using the methodologies I was able to create this project in a very short time because the design thinking methodology allows me to gather the relevant information to create a prototype and the development methodology which was waterfall methodology allowed me to develop the application in a sufficient manner. 
+
 
 
 
