@@ -47,6 +47,7 @@ To get some feedback on my work I decided to ask my sister who goes to the unive
 
 ## Creating the app
 
+I structured my app in the following format:“view”,”assets” ,”config” and “components”. Then I began creating each page, styling them, and testing them according to the figma file. Throughout my testing I would develop a part of the backend, for example creating the “Login Page” with a submit function that would call “console.log” to let me know if the function is called. After completing each component and finishing the main page, I linked each individual page. After this I’ve created the backend, initialized firebase and a component which would create a graph displaying the sleep pattern of the user that’s currently connected. Finally, I’ve hosted the application and tweaked some minor bugs.
 
 
 
